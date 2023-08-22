@@ -8,7 +8,7 @@ export function Header() {
     return (
         <S.HeaderContainer>
             <img src={effect1} alt="" />
-            <img src={logo} alt="" />
+            <S.Logo src={logo} alt="" />
             <img src={effect2} alt="" />
         </S.HeaderContainer>
     )

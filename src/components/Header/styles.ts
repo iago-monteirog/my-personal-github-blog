@@ -8,3 +8,7 @@ export const HeaderContainer = styled.header`
     justify-content: space-between;
     padding: 4rem 0;
 `;
+
+export const Logo = styled.img`
+ margin-top: -4rem;
+`;

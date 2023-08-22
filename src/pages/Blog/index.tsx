@@ -1,5 +1,9 @@
+import { Profile } from "../../components/Profile";
+
 export function BlogPage() {
     return (
-        <h1>BlogPage</h1>
+        <div>
+            <Profile />
+        </div>
     )
 }
