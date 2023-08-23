@@ -8,35 +8,38 @@ export function Profile() {
     return (
         <S.ProfileContainer>
             <div>
-                <img src="https://github.com/iago-monteirog.png" alt="" />
+                <S.ProfileImg src="https://github.com/iago-monteirog.png" alt="" />
             </div>
 
-            <div>
-                <div>
+            <S.ProfileContent>
+                <S.ProfileTitle>
                     <h3>Iago Monteiro Garcia</h3>
 
-                    <div>
-                        <a>GITHUB</a>
-                        <img src={arrowUpIcon} alt="" />
-                    </div>
-                </div>
+                    <S.GithubLink>
+                        <a>github</a>
+                        <S.ProfileIcons variant='xs' src={arrowUpIcon} alt="" />
+                    </S.GithubLink>
+                </S.ProfileTitle>
 
-                <p></p>
-                <div>
-                    <div>
-                        <img src={githubIcon} alt="" />
-                        <a href="">iago-monteirog</a>
-                    </div>
-                    <div>
-                        <img src={buildingIcon} alt="" />
-                        <a href="">Rocketseat</a>
-                    </div>
-                    <div>
-                        <img src={userGroupIcon} alt="" />
-                        <a href="">32 seguidores</a>
-                    </div>
-                </div>
-            </div>
+                <p>
+                    Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat pulvinar vel mass.
+                </p>
+
+                <S.InfosContainer>
+                    <S.InfosContent>
+                        <S.ProfileIcons variant='s' src={githubIcon} alt="" />
+                        <span>iago-monteirog</span>
+                    </S.InfosContent>
+                    <S.InfosContent>
+                        <S.ProfileIcons variant='s' src={buildingIcon} alt="" />
+                        <span>Rocketseat</span>
+                    </S.InfosContent>
+                    <S.InfosContent>
+                        <S.ProfileIcons variant='s' src={userGroupIcon} alt="" />
+                        <span>32 seguidores</span>
+                    </S.InfosContent>
+                </S.InfosContainer>
+            </S.ProfileContent>
         </S.ProfileContainer>
     )
 }
