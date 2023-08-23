@@ -6,7 +6,7 @@ export const ProfileContainer = styled.div`
     border-radius: 10px;
     box-shadow: 0px 2px 28px 0px rgba(0, 0, 0, 0.20);
 
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

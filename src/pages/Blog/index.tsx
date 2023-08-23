@@ -1,9 +1,12 @@
 import { Profile } from "../../components/Profile";
+import { SearchForm } from "../../components/SearchForm";
+import * as S from './styles';
 
 export function BlogPage() {
     return (
-        <div>
+        <S.BlogContainer>
             <Profile />
-        </div>
+            <SearchForm />
+        </S.BlogContainer>
     )
 }
