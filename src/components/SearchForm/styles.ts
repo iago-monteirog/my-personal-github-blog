@@ -33,6 +33,7 @@ export const StyledInput = styled.input`
     border-radius: 6px;
     border: 1px solid ${props => props.theme["base-border"]};
     background: ${props => props.theme["base-input"]};
+    color: ${props => props.theme["base-text"]};
 
     &::placeholder {
         color: ${props => props.theme["base-label"]};
