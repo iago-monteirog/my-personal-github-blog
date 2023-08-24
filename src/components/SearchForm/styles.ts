@@ -4,7 +4,7 @@ export const SearchFormContainer = styled.form`
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    margin-top: 12.25rem;
+    margin-top: 10rem;
 `
 
 export const TitleHeader = styled.div`
