@@ -22,7 +22,6 @@ export const PostInfoContainer = styled.div`
     display: flex;
     flex: 1;
     flex-direction: column;
-    gap: 1rem;
     width: 65%;
 
     p {
@@ -30,6 +29,7 @@ export const PostInfoContainer = styled.div`
         font-weight: 700;
         line-height: 1.3;
         color: ${props => props.theme["base-title"]};
+        margin-top: 20px;
     }
 `;
 
@@ -67,4 +67,8 @@ export const InfosContent = styled.div`
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
+`;
+
+export const PostContent = styled.div`
+    margin: 120px 30px;
 `

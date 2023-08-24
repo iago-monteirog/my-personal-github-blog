@@ -5,6 +5,7 @@ import squareArrow from '../../assets/arrow-up-right-from-square-solid.svg';
 import github from '../../assets/github.svg';
 import calendar from '../../assets/calendar-day-solid.svg';
 import comment from '../../assets/comment-solid.svg';
+import ReactMarkdown from 'react-markdown';
 
 export function PostPage() {
     return (
@@ -39,6 +40,12 @@ export function PostPage() {
                     </S.InfosContent>
                 </S.InfosContainer>
             </S.PostInfoContainer>
+
+            <S.PostContent>
+                <ReactMarkdown>
+                    # Hello, *world*!
+                </ReactMarkdown>
+            </S.PostContent>
         </S.PostContainer>
     )
 }
