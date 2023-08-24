@@ -12,6 +12,11 @@ export const BlogContent = styled.div`
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     margin-top: 48px;
+    
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
 `;
 
 export const Post = styled.div`
