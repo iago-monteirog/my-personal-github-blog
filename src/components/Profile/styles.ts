@@ -64,7 +64,7 @@ export const ProfileTitle = styled.div`
     }
 `;
 
-export const GithubLink = styled.div`
+export const GithubLink = styled.a`
     display: flex;
     gap: 0.5rem;
     justify-content: center;
