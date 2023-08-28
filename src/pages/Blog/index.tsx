@@ -2,32 +2,24 @@ import { NavLink } from "react-router-dom";
 import { Profile } from "../../components/Profile";
 import { SearchForm } from "../../components/SearchForm";
 import * as S from './styles';
-import { useEffect, useState } from "react";
-import { api } from "../../api/api";
+import { useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import { formatDistanceToNow } from "date-fns";
 import ptBR from 'date-fns/locale/pt-BR';
-
-
-interface User {
-    login: string,
-}
-
-interface Issue {
-    title: string,
-    user: User,
-    body: string,
-    number: number,
-    created_at: string
-}
+import { useContextSelector } from "use-context-selector";
+import { IssuesContext } from "../../contexts/IssuesContext";
 
 export function BlogPage() {
-    const [issuesData, setIssuesData] = useState<Issue[]>([]);
+    const issuesData = useContextSelector(IssuesContext, (context) => {
+        return context.issuesData
+    });
+
+    const fetchIssues = useContextSelector(IssuesContext, (context) => {
+        return context.fetchIssues
+    });
 
     async function loadIssuesList() {
-        const response = await api.get('/search/issues?q=repo:iago-monteirog/my-personal-github-blog');
-
-        setIssuesData(response.data.items);
+        await fetchIssues();
     }
 
     useEffect(() => {
@@ -42,7 +34,7 @@ export function BlogPage() {
     }
 
     function createdAtDateRelativeToNow(dateString: string) {
-        const date = new Date(dateString); // Convert string to Date object
+        const date = new Date(dateString);
 
         const newDate = formatDistanceToNow(date, {
             locale: ptBR,
