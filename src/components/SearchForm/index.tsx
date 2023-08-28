@@ -1,7 +1,7 @@
+import { ChangeEvent } from 'react';
 import { useContextSelector } from 'use-context-selector';
 import * as S from './styles';
 import { IssuesContext } from '../../contexts/IssuesContext';
-import { ChangeEvent } from 'react';
 
 export function SearchForm() {
     const issuesData = useContextSelector(IssuesContext, (context) => {

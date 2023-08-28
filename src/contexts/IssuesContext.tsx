@@ -40,12 +40,14 @@ export function IssuesProvider({ children }: IssuesProviderProps) {
 
     const searchForIssue = useCallback(
         async (query: string) => {
-            const encodedQuery = encodeURIComponent(query.replace(/ /g, '%'));
+            if (query.length > 4) {
+                const encodedQuery = encodeURIComponent(query.replace(/ /g, '%'));
 
-            const response = await api.
-                get(`/search/issues?q=${encodedQuery}%20repo:iago-monteirog/my-personal-github-blog`);
+                const response = await api.
+                    get(`/search/issues?q=${encodedQuery}%20repo:iago-monteirog/my-personal-github-blog`);
 
-            setIssuesData(response.data.items);
+                setIssuesData(response.data.items);
+            }
         },
         []);
 
