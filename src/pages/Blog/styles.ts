@@ -26,6 +26,7 @@ export const Post = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
+    min-height: 450px;
 
     cursor: pointer;
 `;

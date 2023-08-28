@@ -4,6 +4,10 @@ import { SearchForm } from "../../components/SearchForm";
 import * as S from './styles';
 import { useEffect, useState } from "react";
 import { api } from "../../api/api";
+import ReactMarkdown from "react-markdown";
+import { formatDistanceToNow } from "date-fns";
+import ptBR from 'date-fns/locale/pt-BR';
+
 
 interface User {
     login: string,
@@ -13,7 +17,8 @@ interface Issue {
     title: string,
     user: User,
     body: string,
-    number: number
+    number: number,
+    created_at: string
 }
 
 export function BlogPage() {
@@ -29,6 +34,24 @@ export function BlogPage() {
         loadIssuesList();
     }, []);
 
+    function truncateText(text: string, maxLength: number) {
+        if (text.length > maxLength) {
+            return text.substring(0, maxLength) + '...';
+        }
+        return text;
+    }
+
+    function createdAtDateRelativeToNow(dateString: string) {
+        const date = new Date(dateString); // Convert string to Date object
+
+        const newDate = formatDistanceToNow(date, {
+            locale: ptBR,
+            addSuffix: true
+        });
+
+        return newDate;
+    }
+
     return (
         <S.BlogContainer>
             <Profile />
@@ -41,12 +64,12 @@ export function BlogPage() {
                             <S.Post>
                                 <S.PostHeader>
                                     <p>{issue.title}</p>
-                                    <span>Há 1 dia</span>
+                                    <span>{createdAtDateRelativeToNow(issue.created_at)}</span>
                                 </S.PostHeader>
 
-                                <p>
-                                    Programming languages all have built-in data structures, but these often differ from one language to another. This article attempts to list the built-in data structures available in...
-                                </p>
+                                <ReactMarkdown>
+                                    {truncateText(issue.body, 181)}
+                                </ReactMarkdown>
                             </S.Post>
                         </NavLink>
                     )
