@@ -70,5 +70,5 @@ export const InfosContent = styled.div`
 `;
 
 export const PostContent = styled.div`
-    margin: 120px 30px;
+    margin: 150px 35px;
 `

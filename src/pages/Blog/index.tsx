@@ -3,10 +3,9 @@ import { Profile } from "../../components/Profile";
 import { SearchForm } from "../../components/SearchForm";
 import * as S from './styles';
 import ReactMarkdown from "react-markdown";
-import { formatDistanceToNow } from "date-fns";
-import ptBR from 'date-fns/locale/pt-BR';
 import { useContextSelector } from "use-context-selector";
 import { IssuesContext } from "../../contexts/IssuesContext";
+import { createdAtDateRelativeToNow } from "../../utils/dateFormatter";
 
 export function BlogPage() {
     const issuesData = useContextSelector(IssuesContext, (context) => {
@@ -20,17 +19,6 @@ export function BlogPage() {
         return text;
     }
 
-    function createdAtDateRelativeToNow(dateString: string) {
-        const date = new Date(dateString);
-
-        const newDate = formatDistanceToNow(date, {
-            locale: ptBR,
-            addSuffix: true
-        });
-
-        return newDate;
-    }
-
     return (
         <S.BlogContainer>
             <Profile />
@@ -39,7 +27,7 @@ export function BlogPage() {
             <S.BlogContent>
                 {issuesData.map((issue) => {
                     return (
-                        <NavLink to="/post" key={issue.number}>
+                        <NavLink to={`/post/${issue.number}`} key={issue.number}>
                             <S.Post>
                                 <S.PostHeader>
                                     <p>{issue.title}</p>
